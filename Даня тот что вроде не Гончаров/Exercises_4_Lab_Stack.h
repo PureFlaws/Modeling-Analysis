@@ -1,7 +1,6 @@
 #include "classes.h"
 #include "Menu.h"
 
-#include "Exercises_4_Lab_Stack.h"
 #include <iostream>
 #include <vector>
 #include <stack>
@@ -15,23 +14,23 @@
 
 using namespace std;
 
-//1 Валідні дужки
+//1 Г‚Г Г«ВіГ¤Г­Ві Г¤ГіГ¦ГЄГЁ
 bool isValid(const std::string& s);
-//2 Обхід бінарного дерева в порядку (Inorder Traversal)
+//2 ГЋГЎГµВіГ¤ ГЎВіГ­Г Г°Г­Г®ГЈГ® Г¤ГҐГ°ГҐГўГ  Гў ГЇГ®Г°ГїГ¤ГЄГі (Inorder Traversal)
 
-// Допоміжна функція для рекурсивного обходу
+// Г„Г®ГЇГ®Г¬ВіГ¦Г­Г  ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї Г°ГҐГЄГіГ°Г±ГЁГўГ­Г®ГЈГ® Г®ГЎГµГ®Г¤Гі
 void inorderTraversalHelper(TreeNode* root, std::vector<int>& result);
 
-// Функція для виконання обходу
+// Г”ГіГ­ГЄГ¶ВіГї Г¤Г«Гї ГўГЁГЄГ®Г­Г Г­Г­Гї Г®ГЎГµГ®Г¤Гі
 void inorderTraversal(TreeNode* root, std::vector<int>& result);
 TreeNode* insertLevelOrder(const std::vector<int>& values, int i);
 
 
-//3 Мінімальний стек
+//3 ГЊВіГ­ВіГ¬Г Г«ГјГ­ГЁГ© Г±ГІГҐГЄ
 class MinStack {
 private:
-    std::stack<int> s1; // основний стек для зберігання елементів
-    std::stack<int> s2; // допоміжний стек для зберігання мінімальних значень
+    std::stack<int> s1; // Г®Г±Г­Г®ГўГ­ГЁГ© Г±ГІГҐГЄ Г¤Г«Гї Г§ГЎГҐГ°ВіГЈГ Г­Г­Гї ГҐГ«ГҐГ¬ГҐГ­ГІВіГў
+    std::stack<int> s2; // Г¤Г®ГЇГ®Г¬ВіГ¦Г­ГЁГ© Г±ГІГҐГЄ Г¤Г«Гї Г§ГЎГҐГ°ВіГЈГ Г­Г­Гї Г¬ВіГ­ВіГ¬Г Г«ГјГ­ГЁГµ Г§Г­Г Г·ГҐГ­Гј
 
 public:
     MinStack() {}
@@ -53,19 +52,19 @@ public:
     int getMin() {
         return s2.top();
     }
-    // Додаємо новий метод empty
+    // Г„Г®Г¤Г ВєГ¬Г® Г­Г®ГўГЁГ© Г¬ГҐГІГ®Г¤ empty
     bool empty() {
         return s1.empty();
     }
 };
 
-//4 Реалізуйте чергу використовуючи стеки
+//4 ГђГҐГ Г«ВіГ§ГіГ©ГІГҐ Г·ГҐГ°ГЈГі ГўГЁГЄГ®Г°ГЁГ±ГІГ®ГўГіГѕГ·ГЁ Г±ГІГҐГЄГЁ
 class MyQueue {
 private:
     std::stack<int> stack1;
     std::stack<int> stack2;
 
-    // Переміщає елементи з stack1 до stack2
+    // ГЏГҐГ°ГҐГ¬ВіГ№Г Вє ГҐГ«ГҐГ¬ГҐГ­ГІГЁ Г§ stack1 Г¤Г® stack2
     void transferStack() {
         while (!stack1.empty()) {
             stack2.push(stack1.top());
@@ -101,31 +100,31 @@ public:
     }
 };
 
-//5 Декодувати рядок
+//5 Г„ГҐГЄГ®Г¤ГіГўГ ГІГЁ Г°ГїГ¤Г®ГЄ
 std::string decodeString(const std::string& s);
 
-//6 Оцініть зворотну польську нотацію
+//6 ГЋГ¶ВіГ­ВіГІГј Г§ГўГ®Г°Г®ГІГ­Гі ГЇГ®Г«ГјГ±ГјГЄГі Г­Г®ГІГ Г¶ВіГѕ
 int evalRPN(const std::vector<std::string>& tokens);
 
-//7 Найдовші дійсні дужки
+//7 ГЌГ Г©Г¤Г®ГўГёВі Г¤ВіГ©Г±Г­Ві Г¤ГіГ¦ГЄГЁ
 int longestValidParentheses(const std::string& s);
 
-//Функції меню
+//Г”ГіГ­ГЄГ¶ВіВї Г¬ГҐГ­Гѕ
 //////////////////////////////////////////////////////////////////////////////////////////
-//1 кейс
+//1 ГЄГҐГ©Г±
 void caseOneLab4();
 //////////////////////////////////////////////////////////////////////////////////////////
-//2 кейс
+//2 ГЄГҐГ©Г±
 void caseTwoLab4();
 //////////////////////////////////////////////////////////////////////////////////////////
-//3 кейс
+//3 ГЄГҐГ©Г±
 void minStackPush(MinStack& minStack);
 void minStackPop(MinStack& minStack);
 void minStackTop(MinStack& minStack);
 void minStackGetMin(MinStack& minStack);
 void caseThreeLab4();
 //////////////////////////////////////////////////////////////////////////////////////////
-//4 кейс
+//4 ГЄГҐГ©Г±
 void queuePush(MyQueue& myQueue);
 void queuePop(MyQueue& myQueue);
 void queuePeek(MyQueue& myQueue);
@@ -133,13 +132,13 @@ void queueEmpty(MyQueue& myQueue);
 
 void caseFourLab4();
 //////////////////////////////////////////////////////////////////////////////////////////
-//5 кейс
+//5 ГЄГҐГ©Г±
 void caseFiveLab4();
 //////////////////////////////////////////////////////////////////////////////////////////
-//6 кейс
+//6 ГЄГҐГ©Г±
 void caseSixLab4();
 //////////////////////////////////////////////////////////////////////////////////////////
-//7 кейс
+//7 ГЄГҐГ©Г±
 void caseSevenLab4();
 
 void Lab_4_Stack();
